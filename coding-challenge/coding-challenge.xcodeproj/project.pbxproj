@@ -15,6 +15,14 @@
 		AF285D772593355C00621CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF285D752593355C00621CCF /* LaunchScreen.storyboard */; };
 		AF285D822593355C00621CCF /* coding_challengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF285D812593355C00621CCF /* coding_challengeTests.swift */; };
 		AF285D9F2593362000621CCF /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = AF285D9E2593362000621CCF /* ComposableArchitecture */; };
+		AF285DA92593446800621CCF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF285DA82593446800621CCF /* SearchViewController.swift */; };
+		AF285DAF2593481000621CCF /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF285DAE2593481000621CCF /* SearchResultsViewController.swift */; };
+		AF285DB4259348B600621CCF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF285DB3259348B600621CCF /* SearchViewModel.swift */; };
+		AF9D5993259349F8005D1939 /* AppFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D5992259349F8005D1939 /* AppFlowViewController.swift */; };
+		AF9D599725934EA7005D1939 /* SearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D599625934EA7005D1939 /* SearchResultsCell.swift */; };
+		AF9D599E25935110005D1939 /* JobClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D599D25935110005D1939 /* JobClient.swift */; };
+		AF9D59A625935DED005D1939 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D59A525935DED005D1939 /* SearchResult.swift */; };
+		AF9D59AB259366FE005D1939 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D59AA259366FE005D1939 /* JobDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +47,14 @@
 		AF285D7D2593355C00621CCF /* coding-challengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "coding-challengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF285D812593355C00621CCF /* coding_challengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coding_challengeTests.swift; sourceTree = "<group>"; };
 		AF285D832593355C00621CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF285DA82593446800621CCF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AF285DAE2593481000621CCF /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		AF285DB3259348B600621CCF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		AF9D5992259349F8005D1939 /* AppFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowViewController.swift; sourceTree = "<group>"; };
+		AF9D599625934EA7005D1939 /* SearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
+		AF9D599D25935110005D1939 /* JobClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobClient.swift; sourceTree = "<group>"; };
+		AF9D59A525935DED005D1939 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		AF9D59AA259366FE005D1939 /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +97,12 @@
 		AF285D692593355B00621CCF /* coding-challenge */ = {
 			isa = PBXGroup;
 			children = (
+				AF9D599C25935101005D1939 /* Network */,
 				AF285D6A2593355B00621CCF /* AppDelegate.swift */,
 				AF285D6C2593355B00621CCF /* SceneDelegate.swift */,
+				AF9D5992259349F8005D1939 /* AppFlowViewController.swift */,
+				AF9D59A9259366E7005D1939 /* Job Detail */,
+				AF285DA72593445100621CCF /* Search */,
 				AF285D6E2593355B00621CCF /* ContentView.swift */,
 				AF285D702593355C00621CCF /* Assets.xcassets */,
 				AF285D752593355C00621CCF /* LaunchScreen.storyboard */,
@@ -107,6 +127,42 @@
 				AF285D832593355C00621CCF /* Info.plist */,
 			);
 			path = "coding-challengeTests";
+			sourceTree = "<group>";
+		};
+		AF285DA72593445100621CCF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AF285DB2259348A400621CCF /* Views */,
+				AF285DB3259348B600621CCF /* SearchViewModel.swift */,
+				AF9D59A525935DED005D1939 /* SearchResult.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		AF285DB2259348A400621CCF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF285DA82593446800621CCF /* SearchViewController.swift */,
+				AF285DAE2593481000621CCF /* SearchResultsViewController.swift */,
+				AF9D599625934EA7005D1939 /* SearchResultsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AF9D599C25935101005D1939 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AF9D599D25935110005D1939 /* JobClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AF9D59A9259366E7005D1939 /* Job Detail */ = {
+			isa = PBXGroup;
+			children = (
+				AF9D59AA259366FE005D1939 /* JobDetailViewController.swift */,
+			);
+			path = "Job Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,9 +271,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF285DB4259348B600621CCF /* SearchViewModel.swift in Sources */,
+				AF9D599725934EA7005D1939 /* SearchResultsCell.swift in Sources */,
+				AF9D59A625935DED005D1939 /* SearchResult.swift in Sources */,
 				AF285D6B2593355B00621CCF /* AppDelegate.swift in Sources */,
 				AF285D6D2593355B00621CCF /* SceneDelegate.swift in Sources */,
+				AF285DA92593446800621CCF /* SearchViewController.swift in Sources */,
+				AF9D5993259349F8005D1939 /* AppFlowViewController.swift in Sources */,
 				AF285D6F2593355B00621CCF /* ContentView.swift in Sources */,
+				AF285DAF2593481000621CCF /* SearchResultsViewController.swift in Sources */,
+				AF9D599E25935110005D1939 /* JobClient.swift in Sources */,
+				AF9D59AB259366FE005D1939 /* JobDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
