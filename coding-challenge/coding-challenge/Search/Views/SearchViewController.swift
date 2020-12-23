@@ -48,6 +48,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .systemBackground
         navigationItem.titleView = titleView
         navigationItem.searchController = searchController
         navigationController?.navigationBar.tintColor = .purple

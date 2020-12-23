@@ -48,6 +48,7 @@ class JobDetailViewController: UIViewController {
             scrollView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: padding),
             scrollView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: padding),
         ])
+        scrollView.backgroundColor = .systemBackground
         return scrollView
     }()
     
@@ -83,7 +84,6 @@ class JobDetailViewController: UIViewController {
     private func makeTitleDetail(title: String, detail: String) -> UIStackView {
         
         let titleLabel = make(title: title)
-        
         let detailLabel = make(detail: detail)
         
         let stackView = UIStackView(arrangedSubviews: [titleLabel, detailLabel])
