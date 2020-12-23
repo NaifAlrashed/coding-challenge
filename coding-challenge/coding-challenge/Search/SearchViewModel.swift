@@ -16,7 +16,7 @@ class SearchViewModel {
     
     private var searchSubscription: AnyCancellable?
     
-    let scheduler: some Scheduler = DispatchQueue.main
+    let scheduler: some Scheduler = DispatchQueue.main // this should be a generic AnyScheduler to inject a testing scheduler for testing, but combine doesn't come with one. There are libraries that does that.
     
     init(jobsClient: JobClient) {
         self.jobsClient = jobsClient

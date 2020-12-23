@@ -15,11 +15,11 @@ class JobDetailViewController: UIViewController {
         let descriptionTitle = make(title: "Description")
         let descriptionDetail = make(detail: "")
         
-        let attributedString = try! NSAttributedString(
+        let attributedString = (try? NSAttributedString(
             data: job.searchResultDescription.data(using: .utf8)!,
             options: [.documentType: NSAttributedString.DocumentType.html],
             documentAttributes: nil
-        )
+        )) ?? NSAttributedString(string: job.searchResultDescription)
         descriptionDetail.attributedText = attributedString
         return makeStackView(using: descriptionTitle, descriptionDetail)
     }()
