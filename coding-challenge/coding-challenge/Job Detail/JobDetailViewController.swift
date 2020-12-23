@@ -31,7 +31,6 @@ class JobDetailViewController: UIViewController {
         let jobTitle = makeTitleDetail(title: "Title", detail: job.title)
         
         let stackView = UIStackView(arrangedSubviews: [typeView, company, url, jobTitle, descriptionView])
-        stackView.arrangedSubviews.forEach { print("contentSize: \($0.intrinsicContentSize)") }
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -64,6 +63,10 @@ class JobDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        layout()
+    }
+    
+    func layout() {
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -73,9 +76,9 @@ class JobDetailViewController: UIViewController {
             
             view.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: padding * 2)
         ])
-        print(stackView.intrinsicContentSize)
-        
     }
+    
+    // MARK: - factory view methods
     
     private func makeTitleDetail(title: String, detail: String) -> UIStackView {
         
