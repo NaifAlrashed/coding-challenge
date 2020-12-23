@@ -19,7 +19,6 @@ class SearchViewController: UIViewController {
     private lazy var searchResultsController = SearchResultsViewController(
         searchStatus: viewModel
             .$state
-            .map(\.status)
             .eraseToAnyPublisher(),
         onjobSelected: onJobSelected
     )
@@ -59,11 +58,4 @@ extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         viewModel.search(for: searchController.searchBar.text!)
     }
-}
-
-enum State: Hashable {
-    case idle
-    case loading
-    case error(String)
-    case searchResults([SearchResult])
 }

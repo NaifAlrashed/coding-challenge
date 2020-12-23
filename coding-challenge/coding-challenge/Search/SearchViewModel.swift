@@ -10,7 +10,7 @@ import Combine
 
 class SearchViewModel {
     
-    @Published var state = SearchState()
+    @Published var state: SearchState = .idle
     
     private let jobsClient: JobClient
     
@@ -26,25 +26,27 @@ class SearchViewModel {
         if term.isEmpty {
             return
         }
-        state.status = .loading
+        state = .loading
         searchSubscription = jobsClient.search(for: term)
             .handleEvents(receiveSubscription: { [weak self] _ in
-                self?.state.status = .loading
+                self?.state = .loading
             })
             .print("viewModel")
             .receive(on: scheduler)
             .sink { [weak self] completion in
                 if case let .failure(error) = completion {
-                    self?.state.status = .error(error.localizedDescription)
+                    self?.state = .error(error.localizedDescription)
                 }
             } receiveValue: { [weak self] searchResults in
-                self?.state.status = .searchResults(searchResults)
+                self?.state = .searchResults(searchResults)
             }
 
     }
 }
 
-struct SearchState {
-    var selected: SearchResult? = nil
-    var status: State = .idle
+enum SearchState: Hashable {
+    case idle
+    case loading
+    case error(String)
+    case searchResults([SearchResult])
 }

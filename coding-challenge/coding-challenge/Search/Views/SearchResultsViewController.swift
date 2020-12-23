@@ -22,13 +22,13 @@ class SearchResultsViewController: UITableViewController {
         return cell
     }
     
-    private let searchStatus: AnyPublisher<State, Never>
+    private let searchStatus: AnyPublisher<SearchState, Never>
     
     private var subscription: AnyCancellable?
     
     private let onJobSelected: (SearchResult) -> ()
     
-    init(searchStatus: AnyPublisher<State, Never>, onjobSelected: @escaping (SearchResult) -> ()) {
+    init(searchStatus: AnyPublisher<SearchState, Never>, onjobSelected: @escaping (SearchResult) -> ()) {
         self.searchStatus = searchStatus
         self.onJobSelected = onjobSelected
         super.init(nibName: nil, bundle: nil)
