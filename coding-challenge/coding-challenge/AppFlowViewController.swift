@@ -39,7 +39,8 @@ class AppFlowViewController: UIViewController {
     private func makeSearchViewController() -> SearchViewController {
         let viewModel = SearchViewModel(jobsClient: .production)
         let searchViewController = SearchViewController(viewModel: viewModel) { [weak self] job in
-            
+            let viewController = JobDetailViewController(job: job)
+            self?.appNavigationController.show(viewController, sender: nil)
         }
         return searchViewController
     }

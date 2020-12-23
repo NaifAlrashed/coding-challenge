@@ -23,24 +23,29 @@ class SearchResultsCell: UITableViewCell {
     private let jobDescription: UILabel = {
         let description = UILabel()
         description.translatesAutoresizingMaskIntoConstraints = false
-        description.font = .boldSystemFont(ofSize: 17)
+        description.font = .systemFont(ofSize: 17)
+        description.textColor = .secondaryLabel
         description.numberOfLines = 0
         description.lineBreakMode = .byWordWrapping
         return description
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [title, jobDescription])
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 16),
+            bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
         ])
     }
     
